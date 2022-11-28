@@ -1,7 +1,5 @@
 <?php
-
 $hotels = [
-
     [
         'name' => 'Hotel Belvedere',
         'description' => 'Hotel Belvedere Descrizione',
@@ -37,8 +35,8 @@ $hotels = [
         'vote' => 2,
         'distance_to_center' => 50
     ],
-
 ];
+
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +51,34 @@ $hotels = [
 </head>
 
 <body>
+    <div class="container mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Parking</th>
+                    <th scope="col">Vote</th>
+                    <th scope="col">Distance to center</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <?php foreach ($hotels as $hotel) : ?>
+                    <tr>
+                        <td><?= $hotel['name'] ?></td>
+                        <td><?= $hotel['description'] ?></td>
+                        <td><?php if ($hotel['parking']) {
+                                echo 'Parking';
+                            } else {
+                                echo 'No parking';
+                            } ?></td>
+                        <td><?= $hotel['vote'] ?></td>
+                        <td><?= $hotel['distance_to_center'] ?></td>
+                    </tr>
+            </tbody>
+        <?php endforeach ?>
+        </table>
+    </div>
 
 </body>
 
